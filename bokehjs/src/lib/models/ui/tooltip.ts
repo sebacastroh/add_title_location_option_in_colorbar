@@ -186,6 +186,8 @@ export class TooltipView extends UIElementView {
       this.model.visible = false
     })
 
+    this.el.toggleAttribute("popover", true)
+
     this.el.classList.toggle(tooltips.show_arrow, this.model.show_arrow)
     this.el.classList.toggle(tooltips.non_interactive, !this.model.interactive)
 
@@ -236,6 +238,10 @@ export class TooltipView extends UIElementView {
     }
 
     target.append(this.el)
+
+    if (typeof this.el.showPopover !== "undefined") {
+      this.el.showPopover()
+    }
 
     const bbox = bounding_box(this.target)
     const [sx, sy] = (() => {
