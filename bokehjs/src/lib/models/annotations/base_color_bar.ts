@@ -15,7 +15,8 @@ import {LinearScale} from "../scales"
 import type {Range} from "../ranges"
 import {Range1d} from "../ranges"
 import {BaseText} from "../text/base_text"
-import {Anchor, Location, Orientation, Side, TextAlign, VerticalAlign} from "core/enums"
+import {Anchor, Location, Orientation, TextAlign, VerticalAlign} from "core/enums"
+import type {Side} from "core/enums"
 import type * as visuals from "core/visuals"
 import * as mixins from "core/property_mixins"
 import type * as p from "core/properties"
@@ -483,7 +484,7 @@ export abstract class BaseColorBarView extends AnnotationView {
     const {_title_view} = this
     _title_view.panel = new SidePanel(title_direction)
     _title_view.update_layout()
-    
+
     if (title_location == "above") {
       top_panel.children.push(_title_view.layout)
     } else if (title_location == "below") {
